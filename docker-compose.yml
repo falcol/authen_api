@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  postgres_fastapi:
+    image: postgres
+    container_name: postgres
+    hostname: postgres_api
+    ports:
+      - '5432:5432'
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+volumes:
+  postgres-db:
